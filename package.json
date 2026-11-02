@@ -1,0 +1,16 @@
+{
+  "name": "duebook-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DueBook customer ledger and payment tracker",
+  "engines": {
+    "node": ">=22.15.1"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check Project/app.js && node scripts/preflight.js"
+  },
+  "dependencies": {
+    "pg": "8.16.3"
+  }
+}

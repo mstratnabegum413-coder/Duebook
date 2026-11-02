@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: duebook
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: duebook-db
+          property: connectionString
+
+databases:
+  - name: duebook-db
+    plan: free
+    region: singapore
+    databaseName: duebook
+    user: duebook
